@@ -11,6 +11,7 @@ interface Props {
 
 const { title, description } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site);
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
 // Facts sourced from docs/content/post-inventory.md — do not embellish.
 const localBusiness = {
@@ -46,9 +47,9 @@ const localBusiness = {
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
-    <link rel="sitemap" href="/sitemap-index.xml" />
-    <link rel="icon" href="/favicon.png" type="image/png" sizes="512x512" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="sitemap" href={`${base}/sitemap-index.xml`} />
+    <link rel="icon" href={`${base}/favicon.png`} type="image/png" sizes="512x512" />
+    <link rel="apple-touch-icon" href={`${base}/apple-touch-icon.png`} />
     <meta name="generator" content={Astro.generator} />
 
     <meta property="og:type" content="website" />
@@ -57,7 +58,7 @@ const localBusiness = {
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:locale" content="es_MX" />
-    <meta property="og:image" content={new URL('/og.png', Astro.site)} />
+    <meta property="og:image" content={new URL(`${base}/og.png`, Astro.site)} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta name="twitter:card" content="summary_large_image" />
