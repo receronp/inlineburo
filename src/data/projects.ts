@@ -70,7 +70,13 @@ export const featured: Project[] = [
 // Each entry links to the post where the work is shown (post IDs in
 // docs/content/post-inventory.md).
 const ig = (id: string) => `https://www.instagram.com/inlineburo/p/${id}/`;
-const fbPhotos = 'https://www.facebook.com/InlineMktg/photos';
+// Post permalinks resolved from each photo's "Ver publicación" link.
+const fbCardsPost =
+  'https://www.facebook.com/InlineMktg/posts/pfbid0FMm8rPQZZwd6MNLvTuqgMzVeHsabwgZcSjodErsnc7WjLnzN4wCgtSuxEDtqZNHvl';
+const fbLatinPost =
+  'https://www.facebook.com/InlineMktg/posts/pfbid0vBEkBpfNgB8ckbfHBpUUQacuiToy8XmfUHxWHFHxwMoc31Qr2LzTqiQUcaC2ueJ9l';
+// Direct album upload with no wrapping post; the photo URL is its permalink.
+const fbFotomurales = 'https://www.facebook.com/photo/?fbid=520067608815140';
 
 export const gallery: { label: string; href: string }[] = [
   { label: 'Pepsi · demo stand con vinil', href: ig('DHZHBQrPThp') },
@@ -83,7 +89,7 @@ export const gallery: { label: string; href: string }[] = [
   { label: 'Microperforado · instalación en las alturas', href: ig('DHZFNECv4ik') },
   { label: 'Hogar · vinil para simulación de textura', href: ig('DHZHsZ1vtIR') },
   { label: 'Ring de box · vestido con lona', href: ig('DHZMy5vsyal') },
-  { label: 'Serinter / VA Valero · tarjetas de presentación', href: fbPhotos },
-  { label: 'Latin American School · gráfica en cancha deportiva', href: fbPhotos },
-  { label: 'FotoMurales Inline · fotomurales a la medida', href: fbPhotos },
+  { label: 'Serinter / VA Valero · tarjetas de presentación', href: fbCardsPost },
+  { label: 'Latin American School · gráfica en cancha deportiva', href: fbLatinPost },
+  { label: 'FotoMurales Inline · fotomurales a la medida', href: fbFotomurales },
 ];
