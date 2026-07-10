@@ -10,7 +10,11 @@ export interface Project {
   title: string;
   body: string;
   tag: 'c' | 'm' | 'y' | 'k';
+  /** Source post showing the work (Instagram post IDs in post-inventory.md). */
+  post: string;
 }
+
+const igPost = (id: string) => `https://www.instagram.com/inlineburo/p/${id}/`;
 
 export const featured: Project[] = [
   {
@@ -20,6 +24,7 @@ export const featured: Project[] = [
     title: 'Un rebranding que huele a taller mecánico.',
     body: 'Simsa lleva el servicio industrial de motores en el nombre, y su nueva identidad lo lleva en la forma: un logotipo dorado cuya “M” es un pistón. Diseñamos la marca y la aterrizamos en piezas reales — tarjetas en negro con dorado para Simsa y su línea EASA, y un folder troquelado con fotografía de turbinas.',
     tag: 'c',
+    post: igPost('CPCCqWJHoq1'),
   },
   {
     client: 'B Catering',
@@ -27,6 +32,7 @@ export const featured: Project[] = [
     title: 'Una fachada que abre el apetito antes de abrir la puerta.',
     body: 'Producimos la fachada completa del local: caja de luz ovalada con su marca, panel impreso con fotografía de su tabla de quesos y vinil blanco de recorte con ilustraciones de cocina sobre el cristal. Tres técnicas, instaladas como una sola pieza.',
     tag: 'k',
+    post: igPost('DHZLu3dtdqz'),
   },
   {
     client: 'Cenacolo',
@@ -34,6 +40,7 @@ export const featured: Project[] = [
     title: 'El restaurante que se presenta en cada entrega.',
     body: 'Rotulamos la camioneta de reparto de Cenacolo con vinil de recorte: marca, sitio y redes en una aplicación limpia sobre blanco, legible a la velocidad de la calle. La flotilla es el espectacular que ya pagaste; nosotros lo ponemos a trabajar.',
     tag: 'k',
+    post: igPost('DHZNio2Ofve'),
   },
   {
     client: 'INTERSAC 2023',
@@ -42,6 +49,7 @@ export const featured: Project[] = [
     title: 'Un fondo de escenario a la altura del evento.',
     body: 'Producimos e instalamos el fondo completo del escenario: lona impresa a gran formato, restirada en estructura, con el mensaje “Un solo corazón…” de extremo a extremo. Impreso en nuestro taller, instalado en sitio, listo el día del evento.',
     tag: 'y',
+    post: igPost('DHZGWhUutW9'),
   },
   {
     client: 'Sacred Heart',
@@ -49,6 +57,7 @@ export const featured: Project[] = [
     title: 'Un mural que no necesita pared.',
     body: 'Cubos de coroplast forrados de vinil impreso que, apilados, forman un mural exterior de gran formato. Una pieza volumétrica que funciona como escenografía y como fotografía — del taller a la explanada.',
     tag: 'm',
+    post: igPost('DHZNWOEvPk0'),
   },
   {
     client: 'ModusLink',
@@ -56,6 +65,7 @@ export const featured: Project[] = [
     title: 'Señalética que se siente como se ve la empresa.',
     body: 'Señalética interior en acrílico con separadores metálicos: la sala de conferencias identificada con la tipografía y el color de la marca, en un material que aguanta el uso diario sin perder presencia.',
     tag: 'k',
+    post: igPost('DHZKOVsOBp4'),
   },
   {
     client: 'Top Garden',
@@ -64,12 +74,13 @@ export const featured: Project[] = [
     title: 'Renovar sin borrar: el mismo logotipo, mejor resuelto.',
     body: 'Top Garden no necesitaba una marca nueva; necesitaba la suya, más clara. Conservamos la escritura y la hoja que sus clientes ya reconocían y las redibujamos con más peso y mejor trazo: cambios que conservan el alma del logotipo.',
     tag: 'c',
+    post: igPost('B_74tnKDyKH'),
   },
 ];
 
 // Each entry links to the post where the work is shown (post IDs in
 // docs/content/post-inventory.md).
-const ig = (id: string) => `https://www.instagram.com/inlineburo/p/${id}/`;
+const ig = igPost;
 // Post permalinks resolved from each photo's "Ver publicación" link.
 const fbCardsPost =
   'https://www.facebook.com/InlineMktg/posts/pfbid0FMm8rPQZZwd6MNLvTuqgMzVeHsabwgZcSjodErsnc7WjLnzN4wCgtSuxEDtqZNHvl';
