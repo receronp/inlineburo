@@ -78,4 +78,7 @@ export const gallery: string[] = [
   'Microperforado · instalación en las alturas',
   'Hogar · vinil para simulación de textura',
   'Ring de box · vestido con lona',
+  'Serinter / VA Valero · tarjetas de presentación',
+  'Latin American School · gráfica en cancha deportiva',
+  'FotoMurales Inline · fotomurales a la medida',
 ];

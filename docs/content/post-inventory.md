@@ -68,6 +68,25 @@ read from screenshots. Unconfirmed readings are marked [por confirmar].
 | B_1Eew0D0A5 | 2020-05-06 | Estamos muy orgullosos de cumplir 25 años de trabajo, cada proyecto ha sido una gran aventura. A partir de ahora hemos decidido compartir con ustedes algunos retos que hemos enfrentado en esos proyectos… estén pendientes!! | "25 años" lockup with molecule logo |
 | B_vErqIjjqq | 2020-05-03 | Evolucionar nos permite continuar vigentes. La experiencia, nuestra principal ventaja competitiva. La pasión por lo que hacemos, nos mantiene VIVOS! Celebramos estos primeros 25 años… como aquel 3 de mayo del 1995! | Reel (video) |
 
+## Facebook findings (2026-07-10, logged-in)
+
+- **facebook.com/InlineMktg** is the business page: name **"Inline SA de CV"**
+  (legal entity), category "Agencia de marketing", 227 followers.
+  - Tagline: "Your Marketing partner with over 25 years of experience."
+  - **Contact info: +52 81 2407 3834 · ventas@inlineburo.com · inlineburo.com**
+  - **Testimonial (verbatim, Alberto Hdz Rdz, recommends, ~2020):** "Excelente
+    servicio y comunicación con el cliente, aparte de que son muy precisos con su
+    tiempo de entrega con lo que se pide"
+  - Work photos on the page: Serinter business cards, VA Valero business cards,
+    **Latin American School sports-field turf branding** ("Latin" printed on pitch).
+- facebook.com/InlinePrintMty is a *personal profile* (62 friends), not a page.
+  Its 3 photos: "INLINE marketing" logo, "buró creativo" wordmark, and a
+  **"FotoMurales Inline"** promo ("imprimir tu fotomural, justo a la medida que
+  necesitas") — custom photo murals as a service, in their own words.
+  Its listed birth date (5 marzo 1995) conflicts with the IG reel's founding date
+  (3 mayo 1995); the IG reel in their own caption is authoritative.
+- LinkedIn: linkedin.com/company/inlineburo exists; no relevant content (per owner).
+
 ## Known gaps (do not fill by inventing)
 
 - No outcome metrics exist for any project (no "increased sales X%" claims — never add them).

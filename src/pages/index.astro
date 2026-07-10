@@ -1,6 +1,51 @@
 ---
+import { Image } from 'astro:assets';
 import Base from '../layouts/Base.astro';
 import { featured, gallery } from '../data/projects';
+
+import logoMark from '../assets/brand/INLINE-SOMBRA.png';
+import heritage1995 from '../assets/projects/heritage-1995.jpg';
+
+import imgSimsa from '../assets/projects/simsa-logo.jpg';
+import imgBCatering from '../assets/projects/b-catering.jpg';
+import imgCenacolo from '../assets/projects/cenacolo-van.jpg';
+import imgIntersac from '../assets/projects/intersac-escenario.jpg';
+import imgSacredHeart from '../assets/projects/sacred-heart-cubos.jpg';
+import imgModuslink from '../assets/projects/moduslink-senaletica.jpg';
+import imgTopGarden from '../assets/projects/topgarden-refresh-1.jpg';
+
+import logoTopGarden from '../assets/clients/TOPGARDEN.png';
+import logoVenditas from '../assets/clients/VENDITAS.png';
+import logoSerinter from '../assets/clients/SERINTER.png';
+import logoHilda from '../assets/clients/HILDA-CARRANZA.png';
+import logoValero from '../assets/clients/VALERO.png';
+import logoLatin from '../assets/clients/LATIN.png';
+import logoMasHair from '../assets/clients/mas-hair.png';
+import logoUno from '../assets/clients/UNO-CONCRETOS.png';
+
+// Instagram photos per case (see docs/content/post-inventory.md).
+// The 2025 batch photos carry a baked-in frame; object-cover + zoom crops it out
+// until the client provides originals.
+const projectImages: Record<string, { src: ImageMetadata; alt: string; zoom?: boolean }> = {
+  'Grupo Simsa': { src: imgSimsa, alt: 'Logotipo dorado de Simsa, Servicio Industrial de Motores, sobre fondo negro' },
+  'B Catering': { src: imgBCatering, alt: 'Fachada de B Catering: caja de luz ovalada y vinil impreso sobre el cristal', zoom: true },
+  Cenacolo: { src: imgCenacolo, alt: 'Camioneta de Cenacolo ristorante italiano rotulada con vinil de recorte', zoom: true },
+  'INTERSAC 2023': { src: imgIntersac, alt: 'Escenario exterior de INTERSAC 2023 con lona impresa restirada en estructura', zoom: true },
+  'Sacred Heart': { src: imgSacredHeart, alt: 'Mural exterior armado con cubos de coroplast forrados de vinil impreso', zoom: true },
+  ModusLink: { src: imgModuslink, alt: 'Placa de acrílico con separadores metálicos: ModusLink, sala de conferencias', zoom: true },
+  'Top Garden': { src: imgTopGarden, alt: 'Refresh de logotipo de Top Garden: versión anterior y versión renovada' },
+};
+
+const clientLogos = [
+  { src: logoTopGarden, alt: 'Top Garden' },
+  { src: logoVenditas, alt: 'Venditas' },
+  { src: logoSerinter, alt: 'Serinter' },
+  { src: logoHilda, alt: 'Hilda Carranza' },
+  { src: logoValero, alt: 'VA Valero' },
+  { src: logoLatin, alt: 'Latin American School' },
+  { src: logoMasHair, alt: 'Más Hair' },
+  { src: logoUno, alt: 'Uno Concretos' },
+];
 
 const wa = (text: string) =>
   `https://api.whatsapp.com/send?phone=528124073834&text=${encodeURIComponent(text)}`;
@@ -38,20 +83,6 @@ const tagColor: Record<string, string> = {
   k: 'bg-proc-k',
 };
 
-const clients = [
-  'Pepsi',
-  'Grupo Simsa',
-  'Cenacolo',
-  'B Catering',
-  'ModusLink',
-  'Europiel',
-  'Top Garden',
-  'Sacred Heart',
-  'Panadería Monterrey',
-  'Proydea',
-  'Everest',
-  'C3 Design',
-];
 ---
 
 <Base
@@ -61,7 +92,10 @@ const clients = [
   <!-- Header -->
   <header class="sticky top-0 z-40 border-b border-ink/10 bg-paper/95 backdrop-blur">
     <nav class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3" aria-label="Principal">
-      <a href="#inicio" class="display text-lg">Inline<span class="text-spot">.</span></a>
+      <a href="#inicio" class="flex items-center gap-2">
+        <Image src={logoMark} alt="" width={64} class="h-8 w-8" />
+        <span class="display text-lg">Inline<span class="text-spot">.</span></span>
+      </a>
       <div class="hidden items-center gap-6 sm:flex">
         <a href="#servicios" class="ticket hover:text-spot">Servicios</a>
         <a href="#proyectos" class="ticket hover:text-spot">Proyectos</a>
@@ -140,9 +174,21 @@ const clients = [
         {
           featured.map((p) => (
             <article class="group border border-ink/15 bg-white">
-              {/* Photo slot: real installed-work photos pending from client */}
-              <div class="flex aspect-[4/3] items-center justify-center bg-ink/5">
-                <span class="ticket text-ink/40">Fotografía en producción</span>
+              <div class="aspect-[4/3] overflow-hidden bg-ink/5">
+                {
+                  projectImages[p.client] ? (
+                    <Image
+                      src={projectImages[p.client].src}
+                      alt={projectImages[p.client].alt}
+                      width={880}
+                      class={`h-full w-full object-cover ${projectImages[p.client].zoom ? 'scale-[1.18]' : ''}`}
+                    />
+                  ) : (
+                    <div class="flex h-full items-center justify-center">
+                      <span class="ticket text-ink/40">Fotografía en producción</span>
+                    </div>
+                  )
+                }
               </div>
               <div class="border-t border-ink/15 p-6">
                 <p class="ticket flex items-center gap-2 text-ink/60">
@@ -162,13 +208,28 @@ const clients = [
       <ul class="mt-6 grid gap-x-8 gap-y-2 sm:grid-cols-2">
         {gallery.map((g) => <li class="ticket border-b border-ink/10 py-2 text-ink/80">{g}</li>)}
       </ul>
+
+      <!-- Testimonial: verbatim Facebook review (post-inventory.md) -->
+      <figure class="mt-16 max-w-2xl border-l-2 border-spot pl-6">
+        <blockquote class="text-lg leading-relaxed text-ink/80">
+          «Excelente servicio y comunicación con el cliente, aparte de que son muy
+          precisos con su tiempo de entrega con lo que se pide.»
+        </blockquote>
+        <figcaption class="ticket mt-3 text-ink/50">Alberto Hdz Rdz · reseña en Facebook</figcaption>
+      </figure>
     </section>
 
     <!-- Clientes -->
     <section aria-label="Clientes" class="border-y border-ink/10 bg-white">
       <div class="mx-auto max-w-6xl px-4 py-10">
-        <ul class="flex flex-wrap items-center gap-x-8 gap-y-3">
-          {clients.map((c) => <li class="ticket text-ink/50">{c}</li>)}
+        <ul class="flex flex-wrap items-center gap-x-10 gap-y-6">
+          {
+            clientLogos.map((c) => (
+              <li>
+                <Image src={c.src} alt={c.alt} height={44} class="h-9 w-auto opacity-70 grayscale" />
+              </li>
+            ))
+          }
         </ul>
       </div>
     </section>
@@ -176,7 +237,8 @@ const clients = [
     <!-- Nosotros -->
     <section id="nosotros" class="mx-auto max-w-6xl px-4 py-20">
       <h2 class="ticket text-ink/60">Nosotros</h2>
-      <div class="mt-8 max-w-2xl">
+      <div class="mt-8 grid items-start gap-10 md:grid-cols-[2fr_1fr]">
+        <div class="max-w-2xl">
         <p class="display text-3xl sm:text-4xl">Tres décadas saltando chispas.</p>
         <p class="mt-6 leading-relaxed text-ink/80">
           Inline nació el 3 de mayo de 1995 como <em>Inline Diseño y Comunicación</em>,
@@ -185,10 +247,20 @@ const clients = [
           producirlas en el mundo físico, ahora con taller de impresión propio e
           instalación incluida.
         </p>
-        <p class="mt-4 border-l-2 border-spot pl-4 text-ink/70">
-          «Evolucionar nos permite continuar vigentes. La experiencia, nuestra principal
-          ventaja competitiva. La pasión por lo que hacemos nos mantiene vivos.»
-        </p>
+          <p class="mt-4 border-l-2 border-spot pl-4 text-ink/70">
+            «Evolucionar nos permite continuar vigentes. La experiencia, nuestra principal
+            ventaja competitiva. La pasión por lo que hacemos nos mantiene vivos.»
+          </p>
+        </div>
+        <figure class="border border-ink/15 bg-white p-3">
+          <Image
+            src={heritage1995}
+            alt="Macintosh de los años noventa mostrando el logotipo original de 1995: Inline Diseño y Comunicación"
+            width={520}
+            class="w-full"
+          />
+          <figcaption class="ticket mt-3 text-ink/50">1995 · Inline Diseño y Comunicación</figcaption>
+        </figure>
       </div>
     </section>
 
@@ -216,8 +288,12 @@ const clients = [
           </a>
         </div>
         <p class="ticket mt-10 text-paper/50">
-          WhatsApp +52 81 2407 3834 · Monterrey, N.L., México
-          <!-- dirección, horario y correo: pendientes de confirmar con el cliente -->
+          WhatsApp +52 81 2407 3834 ·
+          <a href="mailto:ventas@inlineburo.com" class="underline-offset-4 hover:text-spot hover:underline">
+            ventas@inlineburo.com
+          </a>
+          · Monterrey, N.L., México
+          <!-- dirección y horario: pendientes de confirmar con el cliente -->
         </p>
       </div>
     </section>
@@ -226,13 +302,23 @@ const clients = [
   <footer class="bg-ink">
     <div class="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 border-t border-paper/10 px-4 py-6">
       <p class="ticket text-paper/50">© {new Date().getFullYear()} Inline Buró Creativo</p>
-      <a
-        href="https://www.instagram.com/inlineburo/"
-        rel="noopener"
-        class="ticket text-paper/50 hover:text-spot"
-      >
-        Instagram
-      </a>
+      <ul class="flex items-center gap-6">
+        <li>
+          <a href="https://www.instagram.com/inlineburo/" rel="noopener" class="ticket text-paper/50 hover:text-spot">
+            Instagram
+          </a>
+        </li>
+        <li>
+          <a href="https://www.facebook.com/InlineMktg" rel="noopener" class="ticket text-paper/50 hover:text-spot">
+            Facebook
+          </a>
+        </li>
+        <li>
+          <a href="https://www.linkedin.com/company/inlineburo/" rel="noopener" class="ticket text-paper/50 hover:text-spot">
+            LinkedIn
+          </a>
+        </li>
+      </ul>
     </div>
   </footer>
 
