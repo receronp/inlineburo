@@ -67,18 +67,23 @@ export const featured: Project[] = [
   },
 ];
 
-export const gallery: string[] = [
-  'Pepsi · demo stand con vinil',
-  'Europiel Láser Center · logotipo en vinil de recorte',
-  'Panadería Monterrey · vinil sobre pared',
-  'Proydea / Simeidis · personalización de cascos',
-  'Avise · rotulación de motocicleta',
-  'Everest · vinil de recorte y esmerilado',
-  'C3 Design Allsteel · banner tipo araña',
-  'Microperforado · instalación en las alturas',
-  'Hogar · vinil para simulación de textura',
-  'Ring de box · vestido con lona',
-  'Serinter / VA Valero · tarjetas de presentación',
-  'Latin American School · gráfica en cancha deportiva',
-  'FotoMurales Inline · fotomurales a la medida',
+// Each entry links to the post where the work is shown (post IDs in
+// docs/content/post-inventory.md).
+const ig = (id: string) => `https://www.instagram.com/inlineburo/p/${id}/`;
+const fbPhotos = 'https://www.facebook.com/InlineMktg/photos';
+
+export const gallery: { label: string; href: string }[] = [
+  { label: 'Pepsi · demo stand con vinil', href: ig('DHZHBQrPThp') },
+  { label: 'Europiel Láser Center · logotipo en vinil de recorte', href: ig('DHZMb8TPg-Y') },
+  { label: 'Panadería Monterrey · vinil sobre pared', href: ig('DHZNBKxsyIt') },
+  { label: 'Proydea / Simeidis · personalización de cascos', href: ig('DHZMuOMMzFL') },
+  { label: 'Avise · rotulación de motocicleta', href: ig('DHZF2xCJySu') },
+  { label: 'Everest · vinil de recorte y esmerilado', href: ig('DHZFZxDtEzG') },
+  { label: 'C3 Design Allsteel · banner tipo araña', href: ig('DHZGmkZMRIL') },
+  { label: 'Microperforado · instalación en las alturas', href: ig('DHZFNECv4ik') },
+  { label: 'Hogar · vinil para simulación de textura', href: ig('DHZHsZ1vtIR') },
+  { label: 'Ring de box · vestido con lona', href: ig('DHZMy5vsyal') },
+  { label: 'Serinter / VA Valero · tarjetas de presentación', href: fbPhotos },
+  { label: 'Latin American School · gráfica en cancha deportiva', href: fbPhotos },
+  { label: 'FotoMurales Inline · fotomurales a la medida', href: fbPhotos },
 ];

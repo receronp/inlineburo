@@ -202,7 +202,19 @@ const tagColor: Record<string, string> = {
 
       <h3 class="ticket mt-16 text-ink/60">El taller en acción</h3>
       <ul class="mt-6 grid gap-x-8 gap-y-2 sm:grid-cols-2">
-        {gallery.map((g) => <li class="ticket border-b border-ink/10 py-2 text-ink/80">{g}</li>)}
+        {
+          gallery.map((g) => (
+            <li class="border-b border-ink/10">
+              <a
+                href={g.href}
+                rel="noopener"
+                class="ticket block py-2 text-ink/80 transition-colors hover:text-spot"
+              >
+                {g.label} ↗
+              </a>
+            </li>
+          ))
+        }
       </ul>
 
       <!-- Testimonial: verbatim Facebook review (post-inventory.md) -->
@@ -284,7 +296,7 @@ const tagColor: Record<string, string> = {
           </a>
         </div>
         <div class="mt-10 flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
-          <ul class="flex flex-wrap items-center gap-4">
+          <ul class="flex flex-wrap items-center gap-4 md:order-last">
             <li>
               <a
                 href="https://www.instagram.com/inlineburo/"
