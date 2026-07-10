@@ -21,6 +21,17 @@
 
 html {
   scroll-behavior: smooth;
+  color-scheme: light;
+}
+
+a,
+button {
+  touch-action: manipulation;
+}
+
+/* Anchored sections must clear the sticky header */
+section[id] {
+  scroll-margin-top: 5rem;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -43,6 +54,7 @@ body {
   letter-spacing: -0.02em;
   line-height: 0.95;
   text-transform: uppercase;
+  text-wrap: balance;
 }
 
 /* Mono job-ticket annotations */

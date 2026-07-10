@@ -89,21 +89,35 @@ const tagColor: Record<string, string> = {
   title="Inline Buró Creativo — Taller de impresión gráfica y branding en Monterrey"
   description="Conectando marcas con emociones desde 1995. Creamos, producimos e instalamos: branding, rotulación vehicular, lonas, señalética y cajas de luz. Taller de impresión propio en Monterrey."
 >
+  <a
+    href="#inicio"
+    class="ticket sr-only bg-spot px-4 py-2 text-white focus:not-sr-only focus:absolute focus:left-2 focus:top-2 focus:z-50"
+  >
+    Saltar al contenido
+  </a>
+
   <!-- Header -->
   <header class="sticky top-0 z-40 border-b border-ink/10 bg-paper/95 backdrop-blur">
-    <nav class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3" aria-label="Principal">
+    <nav class="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-x-4 gap-y-2 px-4 py-3" aria-label="Principal">
       <a href="#inicio" class="display text-lg">Inline<span class="text-spot">.</span></a>
-      <div class="hidden items-center gap-6 sm:flex">
+      <div class="order-last flex w-full items-center justify-center gap-6 sm:order-none sm:w-auto">
         <a href="#servicios" class="ticket hover:text-spot">Servicios</a>
         <a href="#proyectos" class="ticket hover:text-spot">Proyectos</a>
         <a href="#contacto" class="ticket hover:text-spot">Contacto</a>
       </div>
       <div class="flex items-center gap-3">
-        <a href={waFile} class="ticket hidden text-ink/70 underline-offset-4 hover:text-spot hover:underline md:inline">
+        <a
+          href={waFile}
+          target="_blank"
+          rel="noopener"
+          class="ticket hidden text-ink/70 underline-offset-4 hover:text-spot hover:underline md:inline"
+        >
           Envía tu archivo
         </a>
         <a
           href={waQuote}
+          target="_blank"
+          rel="noopener"
           class="ticket rounded-none bg-spot px-4 py-2 text-white transition-colors hover:bg-ink"
         >
           Cotiza por WhatsApp
@@ -136,8 +150,13 @@ const tagColor: Record<string, string> = {
           chispas.
         </p>
         <div class="mt-10 flex flex-wrap gap-4">
-          <a href={waQuote} class="ticket bg-ink px-6 py-3 text-paper transition-colors hover:bg-spot">
-            Cotiza tu proyecto
+          <a
+            href={waQuote}
+            target="_blank"
+            rel="noopener"
+            class="ticket bg-ink px-6 py-3 text-paper transition-colors hover:bg-spot"
+          >
+            Cotiza por WhatsApp
           </a>
           <a href="#proyectos" class="ticket border border-ink px-6 py-3 transition-colors hover:border-spot hover:text-spot">
             Ver proyectos
@@ -208,6 +227,7 @@ const tagColor: Record<string, string> = {
             <li class="border-b border-ink/10">
               <a
                 href={g.href}
+                target="_blank"
                 rel="noopener"
                 class="ticket block py-2 text-ink/80 transition-colors hover:text-spot"
               >
@@ -298,11 +318,18 @@ const tagColor: Record<string, string> = {
             imprimimos, en qué material y cuándo lo instalamos.
           </p>
           <div class="mt-10 flex flex-wrap gap-4">
-            <a href={waQuote} class="ticket bg-spot px-6 py-3 text-white transition-colors hover:bg-paper hover:text-ink">
+            <a
+              href={waQuote}
+              target="_blank"
+              rel="noopener"
+              class="ticket bg-spot px-6 py-3 text-white transition-colors hover:bg-paper hover:text-ink"
+            >
               Cotiza por WhatsApp
             </a>
             <a
               href={waFile}
+              target="_blank"
+              rel="noopener"
               class="ticket border border-paper/40 px-6 py-3 text-paper transition-colors hover:border-spot hover:text-spot"
             >
               Envía tu archivo
@@ -315,6 +342,7 @@ const tagColor: Record<string, string> = {
             <br />
             <a
               href="https://maps.app.goo.gl/4sNgVgLC6y3A7ya89"
+              target="_blank"
               rel="noopener"
               class="underline-offset-4 hover:text-spot hover:underline"
             >
@@ -345,17 +373,32 @@ const tagColor: Record<string, string> = {
       <p class="ticket text-paper/50">© {new Date().getFullYear()} Inline Buró Creativo</p>
       <ul class="flex items-center gap-6">
         <li>
-          <a href="https://www.instagram.com/inlineburo/" rel="noopener" class="ticket text-paper/50 hover:text-spot">
+          <a
+            href="https://www.instagram.com/inlineburo/"
+            target="_blank"
+            rel="noopener"
+            class="ticket text-paper/50 hover:text-spot"
+          >
             Instagram
           </a>
         </li>
         <li>
-          <a href="https://www.facebook.com/InlineMktg" rel="noopener" class="ticket text-paper/50 hover:text-spot">
+          <a
+            href="https://www.facebook.com/InlineMktg"
+            target="_blank"
+            rel="noopener"
+            class="ticket text-paper/50 hover:text-spot"
+          >
             Facebook
           </a>
         </li>
         <li>
-          <a href="https://www.linkedin.com/company/inlineburo/" rel="noopener" class="ticket text-paper/50 hover:text-spot">
+          <a
+            href="https://www.linkedin.com/company/inlineburo/"
+            target="_blank"
+            rel="noopener"
+            class="ticket text-paper/50 hover:text-spot"
+          >
             LinkedIn
           </a>
         </li>
