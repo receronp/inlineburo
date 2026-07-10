@@ -1,0 +1,261 @@
+---
+import Base from '../layouts/Base.astro';
+import { featured, gallery } from '../data/projects';
+
+const wa = (text: string) =>
+  `https://api.whatsapp.com/send?phone=528124073834&text=${encodeURIComponent(text)}`;
+
+const waQuote = wa('Hola, quiero cotizar un proyecto.');
+const waFile = wa('Hola, les envío mi archivo para impresión.');
+
+const services = [
+  {
+    tag: 'c',
+    name: 'Rotulación e instalación',
+    items: 'Vehículos y flotillas · muros y vidrio · microperforado · instalación en alturas',
+  },
+  {
+    tag: 'm',
+    name: 'Impresión gráfica',
+    items: 'Lonas · coroplast · señalética en acrílico · cajas de luz · viniles de recorte y esmerilado',
+  },
+  {
+    tag: 'y',
+    name: 'Branding y diseño',
+    items: 'Identidad y rebranding · refresh de logotipo · tarjetas · stands y escenografía de evento',
+  },
+  {
+    tag: 'k',
+    name: 'Fotografía',
+    items: 'Producto y ambiente para tus piezas impresas y digitales',
+  },
+];
+
+const tagColor: Record<string, string> = {
+  c: 'bg-proc-c',
+  m: 'bg-proc-m',
+  y: 'bg-proc-y',
+  k: 'bg-proc-k',
+};
+
+const clients = [
+  'Pepsi',
+  'Grupo Simsa',
+  'Cenacolo',
+  'B Catering',
+  'ModusLink',
+  'Europiel',
+  'Top Garden',
+  'Sacred Heart',
+  'Panadería Monterrey',
+  'Proydea',
+  'Everest',
+  'C3 Design',
+];
+---
+
+<Base
+  title="Inline Buró — Taller de impresión gráfica y branding en Monterrey, desde 1995"
+  description="Creamos, producimos e instalamos: branding, rotulación vehicular, lonas, señalética, cajas de luz y más. Taller propio en Monterrey desde 1995."
+>
+  <!-- Header -->
+  <header class="sticky top-0 z-40 border-b border-ink/10 bg-paper/95 backdrop-blur">
+    <nav class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3" aria-label="Principal">
+      <a href="#inicio" class="display text-lg">Inline<span class="text-spot">.</span></a>
+      <div class="hidden items-center gap-6 sm:flex">
+        <a href="#servicios" class="ticket hover:text-spot">Servicios</a>
+        <a href="#proyectos" class="ticket hover:text-spot">Proyectos</a>
+        <a href="#contacto" class="ticket hover:text-spot">Contacto</a>
+      </div>
+      <div class="flex items-center gap-3">
+        <a href={waFile} class="ticket hidden text-ink/70 underline-offset-4 hover:text-spot hover:underline md:inline">
+          Envía tu archivo
+        </a>
+        <a
+          href={waQuote}
+          class="ticket rounded-none bg-spot px-4 py-2 text-white transition-colors hover:bg-ink"
+        >
+          Cotiza por WhatsApp
+        </a>
+      </div>
+    </nav>
+    <!-- Signature: CMYK calibration bar that "prints" as you scroll -->
+    <div id="calibration" class="flex h-1.5" aria-hidden="true">
+      <div class="w-1/4 origin-left scale-x-0 bg-proc-c transition-transform duration-150"></div>
+      <div class="w-1/4 origin-left scale-x-0 bg-proc-m transition-transform duration-150"></div>
+      <div class="w-1/4 origin-left scale-x-0 bg-proc-y transition-transform duration-150"></div>
+      <div class="w-1/4 origin-left scale-x-0 bg-proc-k transition-transform duration-150"></div>
+    </div>
+  </header>
+
+  <main id="inicio">
+    <!-- Hero: the press sheet -->
+    <section class="mx-auto max-w-6xl px-4 pb-20 pt-16 sm:pt-24">
+      <div class="cropmarks p-4 sm:p-10">
+        <p class="ticket mb-6 text-ink/60">
+          Taller de impresión gráfica · Monterrey, MX · desde 1995
+        </p>
+        <h1 class="display text-[10vw] leading-none sm:text-7xl md:text-8xl">
+          Creamos,<br />producimos<br />
+          <span class="text-spot">e instalamos.</span>
+        </h1>
+        <p class="mt-8 max-w-xl text-lg text-ink/80">
+          Diseñamos tu marca, la imprimimos en nuestro taller y la instalamos donde se
+          ve: vehículos, fachadas, muros, eventos. Tres décadas haciendo que salgan
+          chispas.
+        </p>
+        <div class="mt-10 flex flex-wrap gap-4">
+          <a href={waQuote} class="ticket bg-ink px-6 py-3 text-paper transition-colors hover:bg-spot">
+            Cotiza tu proyecto
+          </a>
+          <a href="#proyectos" class="ticket border border-ink px-6 py-3 transition-colors hover:border-spot hover:text-spot">
+            Ver proyectos
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Servicios -->
+    <section id="servicios" class="border-y border-ink/10 bg-white">
+      <div class="mx-auto max-w-6xl px-4 py-20">
+        <h2 class="ticket text-ink/60">Servicios</h2>
+        <div class="mt-10 grid gap-px bg-ink/10 sm:grid-cols-2 lg:grid-cols-4">
+          {
+            services.map((s) => (
+              <article class="flex flex-col gap-4 bg-white p-6">
+                <span class={`h-4 w-4 ${tagColor[s.tag]}`} aria-hidden="true" />
+                <h3 class="display text-xl">{s.name}</h3>
+                <p class="text-sm leading-relaxed text-ink/70">{s.items}</p>
+              </article>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- Proyectos -->
+    <section id="proyectos" class="mx-auto max-w-6xl px-4 py-20">
+      <h2 class="ticket text-ink/60">Proyectos</h2>
+      <div class="mt-10 grid gap-10 md:grid-cols-2">
+        {
+          featured.map((p) => (
+            <article class="group border border-ink/15 bg-white">
+              {/* Photo slot: real installed-work photos pending from client */}
+              <div class="flex aspect-[4/3] items-center justify-center bg-ink/5">
+                <span class="ticket text-ink/40">Fotografía en producción</span>
+              </div>
+              <div class="border-t border-ink/15 p-6">
+                <p class="ticket flex items-center gap-2 text-ink/60">
+                  <span class={`inline-block h-2.5 w-2.5 ${tagColor[p.tag]}`} aria-hidden="true" />
+                  {p.client} · {p.service}
+                  {p.year && ` · ${p.year}`}
+                </p>
+                <h3 class="mt-3 text-xl font-semibold">{p.title}</h3>
+                <p class="mt-3 text-sm leading-relaxed text-ink/70">{p.body}</p>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+
+      <h3 class="ticket mt-16 text-ink/60">El taller en acción</h3>
+      <ul class="mt-6 grid gap-x-8 gap-y-2 sm:grid-cols-2">
+        {gallery.map((g) => <li class="ticket border-b border-ink/10 py-2 text-ink/80">{g}</li>)}
+      </ul>
+    </section>
+
+    <!-- Clientes -->
+    <section aria-label="Clientes" class="border-y border-ink/10 bg-white">
+      <div class="mx-auto max-w-6xl px-4 py-10">
+        <ul class="flex flex-wrap items-center gap-x-8 gap-y-3">
+          {clients.map((c) => <li class="ticket text-ink/50">{c}</li>)}
+        </ul>
+      </div>
+    </section>
+
+    <!-- Nosotros -->
+    <section id="nosotros" class="mx-auto max-w-6xl px-4 py-20">
+      <h2 class="ticket text-ink/60">Nosotros</h2>
+      <div class="mt-8 max-w-2xl">
+        <p class="display text-3xl sm:text-4xl">Tres décadas saltando chispas.</p>
+        <p class="mt-6 leading-relaxed text-ink/80">
+          Inline nació el 3 de mayo de 1995 como <em>Inline Diseño y Comunicación</em>,
+          cuando los logotipos se dibujaban en una Macintosh de escritorio. Tres décadas
+          después seguimos haciendo lo mismo que aquel primer día: diseñar marcas y
+          producirlas en el mundo físico, ahora con taller de impresión propio e
+          instalación incluida.
+        </p>
+        <p class="mt-4 border-l-2 border-spot pl-4 text-ink/70">
+          «Evolucionar nos permite continuar vigentes. La experiencia, nuestra principal
+          ventaja competitiva. La pasión por lo que hacemos nos mantiene vivos.»
+        </p>
+      </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contacto" class="bg-ink text-paper">
+      <div class="mx-auto max-w-6xl px-4 py-20">
+        <h2 class="ticket text-paper/60">Contacto</h2>
+        <p class="display mt-6 text-4xl sm:text-5xl">
+          Hagamos contacto<br />
+          <span class="text-spot">y que salgan chispas.</span>
+        </p>
+        <p class="mt-6 max-w-lg text-paper/80">
+          Cuéntanos qué necesitas y te respondemos con una propuesta concreta: qué
+          imprimimos, en qué material y cuándo lo instalamos.
+        </p>
+        <div class="mt-10 flex flex-wrap gap-4">
+          <a href={waQuote} class="ticket bg-spot px-6 py-3 text-white transition-colors hover:bg-paper hover:text-ink">
+            Cotiza por WhatsApp
+          </a>
+          <a
+            href={waFile}
+            class="ticket border border-paper/40 px-6 py-3 text-paper transition-colors hover:border-spot hover:text-spot"
+          >
+            Envía tu archivo
+          </a>
+        </div>
+        <p class="ticket mt-10 text-paper/50">
+          WhatsApp +52 81 2407 3834 · Monterrey, N.L., México
+          <!-- dirección, horario y correo: pendientes de confirmar con el cliente -->
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-ink">
+    <div class="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 border-t border-paper/10 px-4 py-6">
+      <p class="ticket text-paper/50">© {new Date().getFullYear()} Inline Buró Creativo</p>
+      <a
+        href="https://www.instagram.com/inlineburo/"
+        rel="noopener"
+        class="ticket text-paper/50 hover:text-spot"
+      >
+        Instagram
+      </a>
+    </div>
+  </footer>
+
+  <script>
+    // The calibration bar "prints" with scroll progress: each process color
+    // fills its quarter in sequence. Static when reduced motion is preferred.
+    const bars = document.querySelectorAll<HTMLElement>('#calibration > div');
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+    const render = () => {
+      const doc = document.documentElement;
+      const progress = doc.scrollTop / (doc.scrollHeight - doc.clientHeight || 1);
+      bars.forEach((bar, i) => {
+        const local = Math.min(Math.max(progress * bars.length - i, 0), 1);
+        bar.style.transform = `scaleX(${local})`;
+      });
+    };
+
+    if (reduced.matches) {
+      bars.forEach((bar) => (bar.style.transform = 'scaleX(1)'));
+    } else {
+      render();
+      addEventListener('scroll', render, { passive: true });
+    }
+  </script>
+</Base>

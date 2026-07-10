@@ -1,0 +1,85 @@
+@import 'tailwindcss';
+
+/*
+  Design tokens — "El taller a la vista" (see REDESIGN.md).
+  Printer's palette: paper + ink + one spot color; the four process
+  colors appear only as functional tags and in the calibration bar.
+*/
+@theme {
+  --color-paper: #fafaf7;
+  --color-ink: #101418;
+  --color-spot: #0a5cff;
+  --color-proc-c: #00a3d9;
+  --color-proc-m: #e5127d;
+  --color-proc-y: #f5c400;
+  --color-proc-k: #1a1a1a;
+
+  --font-display: 'Archivo Variable', 'Archivo', sans-serif;
+  --font-body: 'Archivo Variable', 'Archivo', sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+}
+
+/* Display face: Archivo stretched wide, set tight — signage voice */
+.display {
+  font-family: var(--font-display);
+  font-variation-settings: 'wdth' 125;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 0.95;
+  text-transform: uppercase;
+}
+
+/* Mono job-ticket annotations */
+.ticket {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* Crop marks on the hero sheet */
+.cropmarks {
+  position: relative;
+}
+.cropmarks::before,
+.cropmarks::after {
+  content: '';
+  position: absolute;
+  width: 1.25rem;
+  height: 1.25rem;
+  border-color: currentColor;
+  border-style: solid;
+  opacity: 0.45;
+}
+.cropmarks::before {
+  top: 0;
+  left: 0;
+  border-width: 1px 0 0 1px;
+}
+.cropmarks::after {
+  bottom: 0;
+  right: 0;
+  border-width: 0 1px 1px 0;
+}
+
+/* Visible keyboard focus, everywhere */
+:focus-visible {
+  outline: 2px solid var(--color-spot);
+  outline-offset: 3px;
+}

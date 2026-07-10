@@ -1,0 +1,16 @@
+# dependencies & build
+node_modules/
+dist/
+.astro/
+
+# agent tooling (local only, not part of the site)
+.agents/
+.claude/
+.playwright-mcp/
+skills-lock.json
+CLAUDE.md
+
+# planning-process captures (Playwright screenshots)
+docs/audit/
+
+.DS_Store
