@@ -4,6 +4,7 @@ import Base from '../layouts/Base.astro';
 import { featured, gallery } from '../data/projects';
 
 import heritage1995 from '../assets/projects/heritage-1995.jpg';
+import tallerFachada from '../assets/brand/taller-fachada.jpg';
 
 import imgSimsa from '../assets/projects/simsa-logo.jpg';
 import imgBCatering from '../assets/projects/b-catering.jpg';
@@ -260,48 +261,81 @@ const tagColor: Record<string, string> = {
             ventaja competitiva. La pasión por lo que hacemos nos mantiene vivos.»
           </p>
         </div>
-        <figure class="border border-ink/15 bg-white p-3">
-          <Image
-            src={heritage1995}
-            alt="Macintosh de los años noventa mostrando el logotipo original de 1995: Inline Diseño y Comunicación"
-            width={520}
-            class="w-full"
-          />
-          <figcaption class="ticket mt-3 text-ink/50">1995 · Inline Diseño y Comunicación</figcaption>
-        </figure>
+        <div class="flex flex-col gap-6">
+          <figure class="border border-ink/15 bg-white p-3">
+            <Image
+              src={heritage1995}
+              alt="Macintosh de los años noventa mostrando el logotipo original de 1995: Inline Diseño y Comunicación"
+              width={520}
+              class="w-full"
+            />
+            <figcaption class="ticket mt-3 text-ink/50">1995 · Inline Diseño y Comunicación</figcaption>
+          </figure>
+          <figure class="border border-ink/15 bg-white p-3">
+            <Image
+              src={tallerFachada}
+              alt="Fachada azul del taller de Inline en el centro de Monterrey, con el logotipo en la cortina metálica"
+              width={520}
+              class="w-full"
+            />
+            <figcaption class="ticket mt-3 text-ink/50">Hoy · el taller, Emilio Carranza 455, Centro</figcaption>
+          </figure>
+        </div>
       </div>
     </section>
 
     <!-- Contacto -->
     <section id="contacto" class="bg-ink text-paper">
-      <div class="mx-auto max-w-6xl px-4 py-20">
-        <h2 class="ticket text-paper/60">Contacto</h2>
-        <p class="display mt-6 text-4xl sm:text-5xl">
-          Hagamos contacto<br />
-          <span class="text-spot">y que salgan chispas.</span>
-        </p>
-        <p class="mt-6 max-w-lg text-paper/80">
-          Cuéntanos qué necesitas y te respondemos con una propuesta concreta: qué
-          imprimimos, en qué material y cuándo lo instalamos.
-        </p>
-        <div class="mt-10 flex flex-wrap gap-4">
-          <a href={waQuote} class="ticket bg-spot px-6 py-3 text-white transition-colors hover:bg-paper hover:text-ink">
-            Cotiza por WhatsApp
-          </a>
-          <a
-            href={waFile}
-            class="ticket border border-paper/40 px-6 py-3 text-paper transition-colors hover:border-spot hover:text-spot"
-          >
-            Envía tu archivo
-          </a>
+      <div class="mx-auto grid max-w-6xl gap-12 px-4 py-20 md:grid-cols-2">
+        <div>
+          <h2 class="ticket text-paper/60">Contacto</h2>
+          <p class="display mt-6 text-4xl sm:text-5xl">
+            Hagamos contacto<br />
+            <span class="text-spot">y que salgan chispas.</span>
+          </p>
+          <p class="mt-6 max-w-lg text-paper/80">
+            Cuéntanos qué necesitas y te respondemos con una propuesta concreta: qué
+            imprimimos, en qué material y cuándo lo instalamos.
+          </p>
+          <div class="mt-10 flex flex-wrap gap-4">
+            <a href={waQuote} class="ticket bg-spot px-6 py-3 text-white transition-colors hover:bg-paper hover:text-ink">
+              Cotiza por WhatsApp
+            </a>
+            <a
+              href={waFile}
+              class="ticket border border-paper/40 px-6 py-3 text-paper transition-colors hover:border-spot hover:text-spot"
+            >
+              Envía tu archivo
+            </a>
+          </div>
+          <p class="ticket mt-10 leading-relaxed text-paper/50">
+            <a href="mailto:ventas@inlineburo.com" class="underline-offset-4 hover:text-spot hover:underline">
+              ventas@inlineburo.com
+            </a>
+            <br />
+            <a
+              href="https://maps.app.goo.gl/4sNgVgLC6y3A7ya89"
+              rel="noopener"
+              class="underline-offset-4 hover:text-spot hover:underline"
+            >
+              Emilio Carranza 455, Centro, 64000 Monterrey, N.L.
+            </a>
+            <br />
+            Lunes a viernes · 9:00–19:00
+          </p>
         </div>
-        <p class="ticket mt-10 text-paper/50">
-          <a href="mailto:ventas@inlineburo.com" class="underline-offset-4 hover:text-spot hover:underline">
-            ventas@inlineburo.com
-          </a>
-          · Monterrey, N.L., México
-          <!-- dirección y horario: pendientes de confirmar con el cliente -->
-        </p>
+        <div class="flex flex-col border border-paper/20">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3595.971809460367!2d-100.3122344!3d25.672229200000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8662bf031f8dc285%3A0x66f9f522ee8b8c3c!2sInline%20PRINT!5e0!3m2!1sen!2ses!4v1783685286871!5m2!1sen!2ses"
+            title="Mapa: taller de Inline en Emilio Carranza 455, Centro, Monterrey"
+            class="min-h-80 w-full flex-1 border-0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="strict-origin-when-cross-origin"></iframe>
+          <p class="ticket border-t border-paper/20 p-3 text-paper/50">
+            El taller · visítanos en el centro de Monterrey
+          </p>
+        </div>
       </div>
     </section>
   </main>

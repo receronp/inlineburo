@@ -87,6 +87,18 @@ read from screenshots. Unconfirmed readings are marked [por confirmar].
   (3 mayo 1995); the IG reel in their own caption is authoritative.
 - LinkedIn: linkedin.com/company/inlineburo exists; no relevant content (per owner).
 
+## Google Maps findings (2026-07-10)
+
+Place: "Inline PRINT" — https://maps.app.goo.gl/4sNgVgLC6y3A7ya89 — rated **5.0★
+(12 reviews)** as of 2026-07 (potential social proof; review texts not yet collected).
+- **Address: Emilio Carranza 455, Centro, 64000 Monterrey, N.L.**
+- **Hours: Mon–Fri 9:00–19:00, Sat/Sun closed.**
+- 2 photos: workshop facade (owner upload, Jul 2021 — blue building, molecule logo
+  on the roll-up door, "Lona Vinil" banners; saved to src/assets/brand/) and a
+  **Slushie Drinks expo booth** (customer upload, Jun 2025 — most recent work
+  evidence anywhere; saved to src/assets/projects/, usage rights [por confirmar]
+  since a customer uploaded it).
+
 ## Known gaps (do not fill by inventing)
 
 - No outcome metrics exist for any project (no "increased sales X%" claims — never add them).

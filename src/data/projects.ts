@@ -92,4 +92,9 @@ export const gallery: { label: string; href: string }[] = [
   { label: 'Serinter / VA Valero · tarjetas de presentación', href: fbCardsPost },
   { label: 'Latin American School · gráfica en cancha deportiva', href: fbLatinPost },
   { label: 'FotoMurales Inline · fotomurales a la medida', href: fbFotomurales },
+  // Customer photo on the Google Maps listing (Slushie Drinks, Jun 2025).
+  {
+    label: 'Slushie Drinks · stand de exposición',
+    href: 'https://maps.app.goo.gl/4sNgVgLC6y3A7ya89',
+  },
 ];

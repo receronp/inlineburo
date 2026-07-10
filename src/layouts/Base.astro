@@ -27,10 +27,19 @@ const localBusiness = {
   legalName: 'Inline SA de CV',
   address: {
     '@type': 'PostalAddress',
+    streetAddress: 'Emilio Carranza 455, Centro',
+    postalCode: '64000',
     addressLocality: 'Monterrey',
     addressRegion: 'Nuevo León',
     addressCountry: 'MX',
   },
+  openingHoursSpecification: {
+    '@type': 'OpeningHoursSpecification',
+    dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+    opens: '09:00',
+    closes: '19:00',
+  },
+  hasMap: 'https://maps.app.goo.gl/4sNgVgLC6y3A7ya89',
   sameAs: [
     'https://www.instagram.com/inlineburo/',
     'https://www.facebook.com/InlineMktg',
