@@ -3,7 +3,6 @@ import { Image } from 'astro:assets';
 import Base from '../layouts/Base.astro';
 import { featured, gallery } from '../data/projects';
 
-import logoMark from '../assets/brand/INLINE-SOMBRA.png';
 import heritage1995 from '../assets/projects/heritage-1995.jpg';
 
 import imgSimsa from '../assets/projects/simsa-logo.jpg';
@@ -86,16 +85,13 @@ const tagColor: Record<string, string> = {
 ---
 
 <Base
-  title="Inline Buró — Taller de impresión gráfica y branding en Monterrey, desde 1995"
-  description="Creamos, producimos e instalamos: branding, rotulación vehicular, lonas, señalética, cajas de luz y más. Taller propio en Monterrey desde 1995."
+  title="Inline Buró Creativo — Taller de impresión gráfica y branding en Monterrey"
+  description="Conectando marcas con emociones desde 1995. Creamos, producimos e instalamos: branding, rotulación vehicular, lonas, señalética y cajas de luz. Taller de impresión propio en Monterrey."
 >
   <!-- Header -->
   <header class="sticky top-0 z-40 border-b border-ink/10 bg-paper/95 backdrop-blur">
     <nav class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3" aria-label="Principal">
-      <a href="#inicio" class="flex items-center gap-2">
-        <Image src={logoMark} alt="" width={64} class="h-8 w-8" />
-        <span class="display text-lg">Inline<span class="text-spot">.</span></span>
-      </a>
+      <a href="#inicio" class="display text-lg">Inline<span class="text-spot">.</span></a>
       <div class="hidden items-center gap-6 sm:flex">
         <a href="#servicios" class="ticket hover:text-spot">Servicios</a>
         <a href="#proyectos" class="ticket hover:text-spot">Proyectos</a>
@@ -287,14 +283,48 @@ const tagColor: Record<string, string> = {
             Envía tu archivo
           </a>
         </div>
-        <p class="ticket mt-10 text-paper/50">
-          WhatsApp +52 81 2407 3834 ·
-          <a href="mailto:ventas@inlineburo.com" class="underline-offset-4 hover:text-spot hover:underline">
-            ventas@inlineburo.com
-          </a>
-          · Monterrey, N.L., México
-          <!-- dirección y horario: pendientes de confirmar con el cliente -->
-        </p>
+        <div class="mt-10 flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+          <ul class="flex flex-wrap items-center gap-4">
+            <li>
+              <a
+                href="https://www.instagram.com/inlineburo/"
+                rel="noopener"
+                class="ticket border border-paper/30 px-4 py-2 text-paper/80 transition-colors hover:border-spot hover:text-spot"
+              >
+                Instagram
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.facebook.com/InlineMktg"
+                rel="noopener"
+                class="ticket border border-paper/30 px-4 py-2 text-paper/80 transition-colors hover:border-spot hover:text-spot"
+              >
+                Facebook
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.linkedin.com/company/inlineburo/"
+                rel="noopener"
+                class="ticket border border-paper/30 px-4 py-2 text-paper/80 transition-colors hover:border-spot hover:text-spot"
+              >
+                LinkedIn
+              </a>
+            </li>
+          </ul>
+          <p class="ticket text-paper/50">
+            <a href={waQuote} class="underline-offset-4 hover:text-spot hover:underline">
+              WhatsApp +52 81 2407 3834
+            </a>
+            ·
+            <a href="mailto:ventas@inlineburo.com" class="underline-offset-4 hover:text-spot hover:underline">
+              ventas@inlineburo.com
+            </a>
+            · Monterrey, N.L., México
+            <!-- dirección y horario: pendientes de confirmar con el cliente -->
+          </p>
+        </div>
       </div>
     </section>
   </main>
