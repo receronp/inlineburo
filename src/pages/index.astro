@@ -14,15 +14,6 @@ import imgSacredHeart from '../assets/projects/sacred-heart-cubos.jpg';
 import imgModuslink from '../assets/projects/moduslink-senaletica.jpg';
 import imgTopGarden from '../assets/projects/topgarden-refresh-1.jpg';
 
-import logoTopGarden from '../assets/clients/TOPGARDEN.png';
-import logoVenditas from '../assets/clients/VENDITAS.png';
-import logoSerinter from '../assets/clients/SERINTER.png';
-import logoHilda from '../assets/clients/HILDA-CARRANZA.png';
-import logoValero from '../assets/clients/VALERO.png';
-import logoLatin from '../assets/clients/LATIN.png';
-import logoMasHair from '../assets/clients/mas-hair.png';
-import logoUno from '../assets/clients/UNO-CONCRETOS.png';
-
 // Instagram photos per case (see docs/content/post-inventory.md).
 // The 2025 batch photos carry a baked-in frame; object-cover + zoom crops it out
 // until the client provides originals.
@@ -35,17 +26,6 @@ const projectImages: Record<string, { src: ImageMetadata; alt: string; zoom?: bo
   ModusLink: { src: imgModuslink, alt: 'Placa de acrílico con separadores metálicos: ModusLink, sala de conferencias', zoom: true },
   'Top Garden': { src: imgTopGarden, alt: 'Refresh de logotipo de Top Garden: versión anterior y versión renovada' },
 };
-
-const clientLogos = [
-  { src: logoTopGarden, alt: 'Top Garden' },
-  { src: logoVenditas, alt: 'Venditas' },
-  { src: logoSerinter, alt: 'Serinter' },
-  { src: logoHilda, alt: 'Hilda Carranza' },
-  { src: logoValero, alt: 'VA Valero' },
-  { src: logoLatin, alt: 'Latin American School' },
-  { src: logoMasHair, alt: 'Más Hair' },
-  { src: logoUno, alt: 'Uno Concretos' },
-];
 
 const wa = (text: string) =>
   `https://api.whatsapp.com/send?phone=528124073834&text=${encodeURIComponent(text)}`;
@@ -68,11 +48,6 @@ const services = [
     tag: 'y',
     name: 'Branding y diseño',
     items: 'Identidad y rebranding · refresh de logotipo · tarjetas · stands y escenografía de evento',
-  },
-  {
-    tag: 'k',
-    name: 'Fotografía',
-    items: 'Producto y ambiente para tus piezas impresas y digitales',
   },
 ];
 
@@ -100,9 +75,10 @@ const tagColor: Record<string, string> = {
   <header class="sticky top-0 z-40 border-b border-ink/10 bg-paper/95 backdrop-blur">
     <nav class="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-x-4 gap-y-2 px-4 py-3" aria-label="Principal">
       <a href="#inicio" class="display text-lg">Inline<span class="text-spot">.</span></a>
-      <div class="order-last flex w-full items-center justify-center gap-6 sm:order-none sm:w-auto">
+      <div class="order-last flex w-full items-center justify-center gap-4 sm:order-none sm:w-auto sm:gap-6">
         <a href="#servicios" class="ticket hover:text-spot">Servicios</a>
         <a href="#proyectos" class="ticket hover:text-spot">Proyectos</a>
+        <a href="#nosotros" class="ticket hover:text-spot">Nosotros</a>
         <a href="#contacto" class="ticket hover:text-spot">Contacto</a>
       </div>
       <div class="flex items-center gap-3">
@@ -190,7 +166,7 @@ const tagColor: Record<string, string> = {
     <section id="servicios" class="border-y border-ink/10 bg-white">
       <div class="mx-auto max-w-6xl px-4 py-20">
         <h2 class="ticket text-ink/60">Servicios</h2>
-        <div class="mt-10 grid gap-px bg-ink/10 sm:grid-cols-2 lg:grid-cols-4">
+        <div class="mt-10 grid gap-px bg-ink/10 sm:grid-cols-2 lg:grid-cols-3">
           {
             services.map((s) => (
               <article class="flex flex-col gap-4 bg-white p-6">
@@ -277,50 +253,37 @@ const tagColor: Record<string, string> = {
       </figure>
     </section>
 
-    <!-- Clientes -->
-    <section aria-label="Clientes" class="border-y border-ink/10 bg-white">
-      <div class="mx-auto max-w-6xl px-4 py-10">
-        <ul class="flex flex-wrap items-center justify-center gap-x-10 gap-y-6">
-          {
-            clientLogos.map((c) => (
-              <li>
-                <Image src={c.src} alt={c.alt} height={44} class="h-9 w-auto opacity-70 grayscale" />
-              </li>
-            ))
-          }
-        </ul>
-      </div>
-    </section>
-
-    <!-- Nosotros -->
-    <section id="nosotros" class="mx-auto max-w-6xl px-4 py-20">
-      <h2 class="ticket text-ink/60">Nosotros</h2>
-      <p class="display mt-8 text-3xl sm:text-4xl">Tres décadas saltando chispas.</p>
-      <div class="mt-8 grid items-start gap-x-12 gap-y-8 md:grid-cols-2">
-        <div>
-          <p class="leading-relaxed text-ink/80">
-            Inline nació el 3 de mayo de 1995 como <em>Inline Diseño y Comunicación</em>,
-            cuando los logotipos se dibujaban en una Macintosh de escritorio. Tres décadas
-            después seguimos haciendo lo mismo que aquel primer día: diseñar marcas y
-            producirlas en el mundo físico, ahora con taller de impresión propio e
-            instalación incluida.
-          </p>
-          <p class="mt-6 border-l-2 border-spot pl-4 text-ink/70">
-            «Evolucionar nos permite continuar vigentes. La experiencia, nuestra principal
-            ventaja competitiva. La pasión por lo que hacemos nos mantiene vivos.»
-          </p>
-        </div>
-        <figure class="border border-ink/15 bg-white p-3">
-          <div class="aspect-[4/3] overflow-hidden">
-            <Image
-              src={heritage1995}
-              alt="Macintosh de los años noventa mostrando el logotipo original de 1995: Inline Diseño y Comunicación"
-              width={880}
-              class="h-full w-full object-cover"
-            />
+    <!-- Nosotros — white band; the page alternates paper/white like sheets off the press -->
+    <section id="nosotros" class="border-y border-ink/10 bg-white">
+      <div class="mx-auto max-w-6xl px-4 py-20">
+        <h2 class="ticket text-ink/60">Nosotros</h2>
+        <p class="display mt-8 text-3xl sm:text-4xl">Tres décadas saltando chispas.</p>
+        <div class="mt-8 grid items-start gap-x-12 gap-y-8 md:grid-cols-2">
+          <div>
+            <p class="leading-relaxed text-ink/80">
+              Inline nació el 3 de mayo de 1995 como <em>Inline Diseño y Comunicación</em>,
+              cuando los logotipos se dibujaban en una Macintosh de escritorio. Tres décadas
+              después seguimos haciendo lo mismo que aquel primer día: diseñar marcas y
+              producirlas en el mundo físico, ahora con taller de impresión propio e
+              instalación incluida.
+            </p>
+            <p class="mt-6 border-l-2 border-spot pl-4 text-ink/70">
+              «Evolucionar nos permite continuar vigentes. La experiencia, nuestra principal
+              ventaja competitiva. La pasión por lo que hacemos nos mantiene vivos.»
+            </p>
           </div>
-          <figcaption class="ticket mt-3 text-ink/50">1995 · Inline Diseño y Comunicación</figcaption>
-        </figure>
+          <figure class="border border-ink/15 bg-paper p-3">
+            <div class="aspect-[4/3] overflow-hidden">
+              <Image
+                src={heritage1995}
+                alt="Macintosh de los años noventa mostrando el logotipo original de 1995: Inline Diseño y Comunicación"
+                width={880}
+                class="h-full w-full object-cover"
+              />
+            </div>
+            <figcaption class="ticket mt-3 text-ink/50">1995 · Inline Diseño y Comunicación</figcaption>
+          </figure>
+        </div>
       </div>
     </section>
 
